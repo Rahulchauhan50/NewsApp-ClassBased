@@ -1,12 +1,27 @@
 import React, { Component } from 'react'
 
 export class Navbar extends Component {
-  render() {
+  constructor(){
+    super()
+    // if(localStorage.getItem("M")==="dark"){
+      document.body.style.backgroundColor = "#495057";
+    // }
+  }
+
+  render(props) {
+    let {mode, toggle} = this.props;
+    const styley = {
+      position:'absolute',
+      right:"25%",
+      top:"15px",
+      cursor: "pointer"
+    }
+
     return (
       <div>
-        <nav className="navbar navbar-expand-lg bg-body-tertiary">
+        <nav className={`navbar navbar-expand-lg bg-${mode} navbar-${mode}`}>
             <div className="container-fluid">
-                <a className="navbar-brand" href="/">Navbar</a>
+                <a className="navbar-brand" href="/">QuickNews</a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
                 </button>
@@ -37,6 +52,10 @@ export class Navbar extends Component {
                     <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
                     <button className="btn btn-outline-success" type="submit">Search</button>
                 </form>
+                </div>
+                <div style={styley} className="form-check form-switch">
+              <input style={{cursor:"pointer"}} onClick={toggle} className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked={mode === "dark"?true:false} />
+                <label id="inp1" className={`text-${mode === "dark"? "light":"dark"}`} style={{fontSize:"13px"}} >Dark Mode</label>
                 </div>
             </div>
         </nav>
