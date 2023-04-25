@@ -7,7 +7,7 @@ export default class Footer extends Component {
         <>    
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-      <footer className={`text-center text-lg-start mt-4 bg-${mode} ${mode === "light"?"text-dark":"text-light"}`}>
+      <footer style={{position:"relative",bottom:"0px"}} className={`text-center text-lg-start mt-4 bg-${mode} ${mode === "light"?"text-dark":"text-light"}`}>
         <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
           <div className="me-5 d-none d-lg-block">
             <span>Get connected with us on social networks:</span>
@@ -24,9 +24,6 @@ export default class Footer extends Component {
             </a>
             <a href="mailto:rahulchauhah50@gmail.com" className="me-4 text-reset">
               <i className="fa fa-envelope fa-1x"></i>
-            </a>
-            <a href="/" className="me-4 text-reset">
-              <i className="fa fa-instagram fa-1x"></i>
             </a>
             <a href="https://www.linkedin.com/in/rahul-chauhan-939102208" className="me-4 text-reset">
               <i className="fa fa-linkedin fa-1x"></i>

@@ -1,13 +1,6 @@
 import React, { Component } from 'react'
 
 export class Navbar extends Component {
-  constructor(){
-    super()
-    // if(localStorage.getItem("M")==="dark"){
-      document.body.style.backgroundColor = "#495057";
-    // }
-  }
-
   render(props) {
     let {mode, toggle} = this.props;
     const styley = {
@@ -19,7 +12,8 @@ export class Navbar extends Component {
 
     return (
       <div>
-        <nav className={`navbar navbar-expand-lg bg-${mode} navbar-${mode}`}>
+        {console.log(this.props.mode)}
+        <nav className={`navbar navbar-expand-lg bg-${this.props.mode} navbar-${this.props.mode}`}>
             <div className="container-fluid">
                 <a className="navbar-brand" href="/">QuickNews</a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,13 +29,30 @@ export class Navbar extends Component {
                     </li>
                     <li className="nav-item dropdown">
                     <a className="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown
+                        Categories
                     </a>
                     <ul className="dropdown-menu">
-                        <li><a className="dropdown-item" href="/">Action</a></li>
-                        <li><a className="dropdown-item" href="/">Another action</a></li>
-                        <li><hr className="dropdown-divider"/></li>
-                        <li><a className="dropdown-item" href="/">Something else here</a></li>
+                        <li><a className="dropdown-item" href="/">business</a></li>
+                        <li><a className="dropdown-item" href="/">entertainment</a></li>
+                        <li><a className="dropdown-item" href="/">general</a></li>
+                        <li><a className="dropdown-item" href="/">health</a></li>
+                        <li><a className="dropdown-item" href="/">science</a></li>
+                        <li><a className="dropdown-item" href="/">sports</a></li>
+                        <li><a className="dropdown-item" href="/">technology</a></li>
+                    </ul>
+                    </li>
+                    <li className="nav-item dropdown">
+                    <a className="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Countries
+                    </a>
+                    <ul className="dropdown-menu">
+                        <li><a className="dropdown-item" href="/">business</a></li>
+                        <li><a className="dropdown-item" href="/">entertainment</a></li>
+                        <li><a className="dropdown-item" href="/">general</a></li>
+                        <li><a className="dropdown-item" href="/">health</a></li>
+                        <li><a className="dropdown-item" href="/">science</a></li>
+                        <li><a className="dropdown-item" href="/">sports</a></li>
+                        <li><a className="dropdown-item" href="/">technology</a></li>
                     </ul>
                     </li>
                     <li className="nav-item">
