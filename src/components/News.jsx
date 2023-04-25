@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Newsitems from './Newsitems'
 
+
 export class News extends Component {
 
     constructor(){
@@ -10,7 +11,7 @@ export class News extends Component {
         }
     }
     async componentDidMount(){ 
-        await fetch(`https://newsapi.org/v2/top-headlines?country=in&apiKey=1e0a9b492d664dd1b3751ee483316063&pageSize=6&page=${this.state.articles.page}`)
+        await fetch(`https://newapi.org/v2/top-headlines?country=in&apiKey=1e0a9b492d664dd1b3751ee483316063&pageSize=6&page=${this.state.articles.page}`)
         .then((data)=>{
             return data.json()
         })
@@ -48,8 +49,9 @@ export class News extends Component {
     
     return (
         <>
+        <span className="loader"></span>
       <div className='container'>
-        <h3 className={`text-${mode=="dark"?"light":"dark"}`}>Breaking News at Your Fingertips: Download the QuickNews App and Stay Informed Anytime, Anywhere</h3>
+        <h3 className={`text-${mode==="dark"?"light":"dark"} my-3`}>Breaking News at Your Fingertips: Download the QuickNews App and Stay Informed Anytime, Anywhere</h3>
       <div className='row'>
       {(this.state.articles).map((elements)=>{
         return <div className={`my-3 col-md-4`} key={elements.url}>
@@ -58,9 +60,12 @@ export class News extends Component {
       })}
       </div>
       </div>
-      <div className='row my-3'>
-      <div onClick={this.HandleOnPrev} className={`col-md-1 mx-auto btn btn-${mode === "dark"?"dark":"primary"} ${this.state.page<2?"disabled":""}`}>&larr; Preious</div>
-      <div onClick={this.HandleOnNext} className={`col-md-1 mx-auto btn btn-${mode === "dark"?"dark":"primary"} ${this.state.results<1?"disabled":""}`}>Next &rarr;</div>
+      <div className='flex-row d-flex justify-content-center my-3'>
+      <div className={`col-md-1 btn btn-${mode === "dark"?"dark":"primary"} ${this.state.page<2?"disabled":""}`} >&larr; Preious</div>
+      
+      <div className='col-4'></div>
+      
+      <div className={`col-md-1 btn btn-${mode === "dark"?"dark":"primary"} ${this.state.page<2?"disabled":""}`} >Next &rarr;</div>
     </div>
     </>
     )

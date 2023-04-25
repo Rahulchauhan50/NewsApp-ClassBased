@@ -10,6 +10,8 @@ export class Newsitems extends Component {
             <div className="card-body">
                 <h5 className="card-title">{title}</h5>
                 <p className="card-text">{despription}</p>
+            </div>
+            <div className='m-3'>
                 <a href={newurl} className={`btn btn-sm btn-outline-${mode === "dark"?"light":"dark"}`}>read more</a>
             </div>
           </div>
