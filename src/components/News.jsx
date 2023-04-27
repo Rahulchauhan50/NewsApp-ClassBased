@@ -10,8 +10,9 @@ export class News extends Component {
             articles: [],
             laoding : true,
             Category : props.category,
-            Country : props.country
+            Country : localStorage.getItem("Country") === null?"in": localStorage.getItem("Country")
         }
+        console.log(this.state.Country)
         this.update(this.state.articles.page);
     }
     async update(PageNo){

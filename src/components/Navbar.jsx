@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 export class Navbar extends Component {
   
   render() {
-    let { mode, toggle } = this.props;
+    let { mode, toggle, CountryName } = this.props;
     const styley = {
       position: 'absolute',
       right: "25%",
@@ -32,15 +32,19 @@ export class Navbar extends Component {
                 <li className="nav-item dropdown">
                   <a className="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Countries
-                  </a>
+                  </a>{console.log(CountryName)}
                   <ul className="dropdown-menu">
-                    <li><a className="dropdown-item" href="/">business</a></li>
-                    <li><a className="dropdown-item" href="/">entertainment</a></li>
-                    <li><a className="dropdown-item" href="/">general</a></li>
-                    <li><a className="dropdown-item" href="/">health</a></li>
-                    <li><a className="dropdown-item" href="/">science</a></li>
-                    <li><a className="dropdown-item" href="/">sports</a></li>
-                    <li><a className="dropdown-item" href="/">technology</a></li>
+                    <li onClick={()=>{this.props.CountryName("in")}} ><a className="dropdown-item" href="/">India</a></li>
+                    <li onClick={()=>{this.props.CountryName("au")}} ><a className="dropdown-item" href="/">Australia</a></li>
+                    <li onClick={()=>{this.props.CountryName("br")}} ><a className="dropdown-item" href="/">Brazil</a></li>
+                    <li onClick={()=>{this.props.CountryName("ca")}} ><a className="dropdown-item" href="/">Canada</a></li>
+                    <li onClick={()=>{this.props.CountryName("cn")}} ><a className="dropdown-item" href="/">China</a></li>
+                    <li onClick={()=>{this.props.CountryName("eg")}} ><a className="dropdown-item" href="/">Egypt</a></li>
+                    <li onClick={()=>{this.props.CountryName("fr")}} ><a className="dropdown-item" href="/">France</a></li>
+                    <li onClick={()=>{this.props.CountryName("Hong ")}} ><a className="dropdown-item" href="/">Hong Kong</a></li>
+                    <li onClick={()=>{this.props.CountryName("jp")}} ><a className="dropdown-item" href="/">Japan</a></li>
+                    <li onClick={()=>{this.props.CountryName("ru")}} ><a className="dropdown-item" href="/">Russia</a></li>
+                    <li onClick={()=>{this.props.CountryName("za")}} ><a className="dropdown-item" href="/">South Africa</a></li>
                   </ul>
                 </li>
                 <li className="nav-item">

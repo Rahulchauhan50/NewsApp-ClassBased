@@ -11,14 +11,19 @@ export default class App extends Component {
     document.body.style.backgroundColor = localStorage.getItem("M") === "dark"? "#343a40": "white" ;
     this.state={
       mode: localStorage.getItem("M") == null? "light": localStorage.getItem("M"),
-      progress : 0
+      progress : 0,
+      country: "in"
     }
   }
 
   SetProgress = (ProgressVal) => {
     this.setState({
-      progress: ProgressVal
+      progress: ProgressVal,
+      
     })
+  }
+  ChangeCountry = (countryName) => {
+    localStorage.setItem("Country",countryName);
   }
   ModeChange = () => {
     console.log("before click "+this.state.mode);
@@ -48,16 +53,16 @@ export default class App extends Component {
         color='#f11946'
         progress={this.state.progress}
         />
-        <Navbar mode={this.state.mode} toggle={this.ModeChange}/>
+        <Navbar mode={this.state.mode} toggle={this.ModeChange} CountryName={this.ChangeCountry} />
           <Routes>
-            <Route exact path="/" element={<News progress={this.SetProgress} key={"general"} category="general" country="in" mode={this.state.mode} />} />
-            <Route exact path="/business" element={<News progress={this.SetProgress} key={"business"}  category="business" country="in" mode={this.state.mode} />} />
-            <Route exact path="/entertainment" element={<News progress={this.SetProgress} key={"entertainment"}  category="entertainment" country="in" mode={this.state.mode} />} />
-            <Route exact path="/general" element={<News progress={this.SetProgress} key={"general"}  category="general" country="in" mode={this.state.mode} />} />
-            <Route exact path="/health" element={<News progress={this.SetProgress} key={"health"}  category="health" country="in" mode={this.state.mode} />} />
-            <Route exact path="/science" element={<News progress={this.SetProgress} key={"science"}  category="science" country="in" mode={this.state.mode} />} />
-            <Route exact path="/sports" element={<News progress={this.SetProgress} key={"sports"}  category="sports" country="in" mode={this.state.mode} />} />
-            <Route exact path="/technology" element={<News progress={this.SetProgress} key={"technology"}  category="technology" country="in" mode={this.state.mode} />} />
+            <Route exact path="/" element={<News progress={this.SetProgress} key={"general"} category="general" country={this.state.country} mode={this.state.mode} />} />
+            <Route exact path="/business" element={<News progress={this.SetProgress} key={"business"}  category="business" country={this.state.country} mode={this.state.mode} />} />
+            <Route exact path="/entertainment" element={<News progress={this.SetProgress} key={"entertainment"}  category="entertainment" country={this.state.country} mode={this.state.mode} />} />
+            <Route exact path="/general" element={<News progress={this.SetProgress} key={"general"}  category="general" country={this.state.country} mode={this.state.mode} />} />
+            <Route exact path="/health" element={<News progress={this.SetProgress} key={"health"}  category="health" country={this.state.country} mode={this.state.mode} />} />
+            <Route exact path="/science" element={<News progress={this.SetProgress} key={"science"}  category="science" country={this.state.country} mode={this.state.mode} />} />
+            <Route exact path="/sports" element={<News progress={this.SetProgress} key={"sports"}  category="sports" country={this.state.country} mode={this.state.mode} />} />
+            <Route exact path="/technology" element={<News progress={this.SetProgress} key={"technology"}  category="technology" country={this.state.country} mode={this.state.mode} />} />
           </Routes>
         <Footer mode={this.state.mode}/>
       </Router>
