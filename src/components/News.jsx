@@ -5,8 +5,7 @@ import Spinner from './spinner'
 export class News extends Component {
 
     constructor(props){
-        super();
-        console.log(props.country)
+        super(props);
         this.state = {
             articles: [],
             laoding : true,
@@ -16,27 +15,29 @@ export class News extends Component {
         this.update(this.state.articles.page);
     }
     async update(PageNo){
+        this.props.progress(10)
         this.setState({laoding: true})
         await fetch(`https://newsapi.org/v2/top-headlines?country=${this.state.Country}&category=${this.state.Category}&apiKey=1e0a9b492d664dd1b3751ee483316063&pageSize=6&page=${PageNo}`)
         .then((data)=>{
             return data.json()
         })
         .then((respone)=>{
+            this.props.progress(70)
             this.setState({
                 articles: respone.articles, 
                 page : 1, 
                 results : respone.totalResults-6,
                 laoding: false,
             })
-            
         })
+        this.props.progress(100)
     }
-    HandleOnPrev = async () => {
-        this.update(this.state.page-1)
+    HandleOnPrev = async (props) => {
+        this.update(this.state.page-1,props)
         this.setState({page : this.state.page-1, results : this.state.results+6,})
     }
-    HandleOnNext = async () => {
-        this.update((this.state.page)+1)
+    HandleOnNext = async (props) => {
+        this.update((this.state.page,props)+1)
         this.setState({page : this.state.page+1, results : this.state.results-6,})
     }
    
