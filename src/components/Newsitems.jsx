@@ -17,8 +17,8 @@ export class Newsitems extends Component {
             </div>
             <div className='m-3'>
                 <div className='mt-0 mb-2'> 
-                <div style={{fontSize:"12px",fontFamily:"sans-serif"}} >{`Author: ${author?author:"Unknown"}`}</div>
-                <div style={{fontSize:"12px",fontFamily:"sans-serif"}} >{`Date: ${new Date(time).toGMTString()} `}</div>
+                <div style={{fontSize:"12px",fontFamily:"sans-serif"}} >Author: <span style={{color:"#7e37ff"}}>{author?author:"Unknown"}</span></div>
+                <div style={{fontSize:"12px",fontFamily:"sans-serif"}} >Date: <span style={{color:"#7e37ff"}}>{new Date(time).toGMTString()}</span></div>
                 </div>
                 <a href={newurl} className={`btn btn-sm ${mode === "dark"?"btn-outline-light":"btn-dark"}`}>read more</a>
             </div>
