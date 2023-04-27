@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
 
 export class Navbar extends Component {
-  constructor() {
-    super()
-  }
-  render(props) {
+  
+  render() {
     let { mode, toggle } = this.props;
     const styley = {
       position: 'absolute',

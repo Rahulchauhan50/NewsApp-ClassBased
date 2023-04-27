@@ -6,15 +6,15 @@ import Footer from './components/Footer';
 export default class App extends Component {
   constructor(){
     super();
+    document.body.style.backgroundColor = localStorage.getItem("M") === "dark"? "#343a40": "white" ;
     this.state={
-      // mode: localStorage.getItem("M") == null? "light": localStorage.getItem("M")
-      mode : "dark"
+      mode: localStorage.getItem("M") == null? "light": localStorage.getItem("M")
     }
   }
   ModeChange = () => {
     console.log("before click "+this.state.mode);
     if (this.state.mode === "dark") {
-      this.state=({
+      this.setState({
         mode: "light"
       })
       localStorage.setItem("M","light");
@@ -22,14 +22,16 @@ export default class App extends Component {
       console.log("after click "+this.state.mode)
     }
     else {
-      this.state=({
+      this.setState({
         mode : "dark"
       })
       localStorage.setItem("M","dark");
+      console.log("first");
       document.body.style.backgroundColor = "#343a40";
       console.log("after click "+this.state.mode)
     }
   }
+
   render() {
     return (
       <div>
