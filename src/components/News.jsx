@@ -4,13 +4,14 @@ import Spinner from './spinner'
 
 export class News extends Component {
 
-    constructor(){
+    constructor(props){
         super();
+        console.log(props.country)
         this.state = {
             articles: [],
             laoding : true,
-            Category : "general",
-            Country : "in"
+            Category : props.category,
+            Country : props.country
         }
         this.update(this.state.articles.page);
     }
@@ -40,14 +41,13 @@ export class News extends Component {
     }
    
   render(props) {
-    let {mode} = this.props
+    let {mode} = this.props;
     
     return (
         <>
       <div className='container' id='up'>
         {this.state.laoding && <Spinner/>}
       <div className='row'>
-
       {!this.state.laoding && (this.state.articles).map(Elements=>{
         return <div className={`my-3 col-md-4`} key={Elements.url}>
                 <Newsitems source={Elements.source.name} author={Elements.author} time={Elements.publishedAt} mode={mode} title={Elements.title} despription={Elements.description>130?Elements.description.slice(0,130):Elements.description} imageurl={Elements.urlToImage} newurl={Elements.url}/>

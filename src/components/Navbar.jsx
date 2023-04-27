@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from "react-router-dom"
 
 export class Navbar extends Component {
   
@@ -30,20 +31,6 @@ export class Navbar extends Component {
                 </li>
                 <li className="nav-item dropdown">
                   <a className="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Categories
-                  </a>
-                  <ul className="dropdown-menu">
-                    <li><a className="dropdown-item" href="/">business</a></li>
-                    <li><a className="dropdown-item" href="/">entertainment</a></li>
-                    <li><a className="dropdown-item" href="/">general</a></li>
-                    <li><a className="dropdown-item" href="/">health</a></li>
-                    <li><a className="dropdown-item" href="/">science</a></li>
-                    <li><a className="dropdown-item" href="/">sports</a></li>
-                    <li><a className="dropdown-item" href="/">technology</a></li>
-                  </ul>
-                </li>
-                <li className="nav-item dropdown">
-                  <a className="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Countries
                   </a>
                   <ul className="dropdown-menu">
@@ -72,13 +59,13 @@ export class Navbar extends Component {
           </div>
         </nav>
         <ul className="overflow-auto list-group list-group-horizontal position-relative overflow-auto w-100">
-          <li style={{borderRadius: "20px",backgroundColor:"#0d6efd",}} className="btn btn-primary text-light my-1 mx-1 py-0 list-group-item">business</li>
-          <li style={{borderRadius: "20px",backgroundColor:"#0d6efd",}} className="btn btn-primary text-light my-1 mx-1 py-0 list-group-item">entertainment</li>
-          <li style={{borderRadius: "20px",backgroundColor:"#0d6efd",}} className="btn btn-primary text-light my-1 mx-1 py-0 list-group-item">general</li>
-          <li style={{borderRadius: "20px",backgroundColor:"#0d6efd",}} className="btn btn-primary text-light my-1 mx-1 py-0 list-group-item">health</li>
-          <li style={{borderRadius: "20px",backgroundColor:"#0d6efd",}} className="btn btn-primary text-light my-1 mx-1 py-0 list-group-item">science</li>
-          <li style={{borderRadius: "20px",backgroundColor:"#0d6efd",}} className="btn btn-primary text-light my-1 mx-1 py-0 list-group-item">sports</li>
-          <li style={{borderRadius: "20px",backgroundColor:"#0d6efd",}} className="btn btn-primary text-light my-1 mx-1 py-0 list-group-item">technology</li>
+          <li className="btn btn-success my-1 mx-1 py-0 "><Link style={{textDecoration:"none", color:"white"}} to="/business" >business</Link></li>
+          <li className="btn btn-success my-1 mx-1 py-0 "><Link style={{textDecoration:"none", color:"white"}} to="/entertainment" >entertainment</Link></li>
+          <li className="btn btn-success my-1 mx-1 py-0 "><Link style={{textDecoration:"none", color:"white"}} to="/general" >general</Link></li>
+          <li className="btn btn-success my-1 mx-1 py-0 "><Link style={{textDecoration:"none", color:"white"}} to="/health" >health</Link></li>
+          <li className="btn btn-success my-1 mx-1 py-0 "><Link style={{textDecoration:"none", color:"white"}} to="/science" >science</Link></li>
+          <li className="btn btn-success my-1 mx-1 py-0 "><Link style={{textDecoration:"none", color:"white"}} to="/sports" >sports</Link></li>
+          <li className="btn btn-success my-1 mx-1 py-0 "><Link style={{textDecoration:"none", color:"white"}} to="/technology" >technology</Link></li>
     </ul>  
     </div>
         <div className="container mt-5">

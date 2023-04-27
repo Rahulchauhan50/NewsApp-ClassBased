@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Navbar from './components/Navbar'
 import News from './components/News'
 import Footer from './components/Footer';
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
 export default class App extends Component {
   constructor(){
@@ -34,11 +35,22 @@ export default class App extends Component {
 
   render() {
     return (
-      <div>
+      <Router>
         <Navbar mode={this.state.mode} toggle={this.ModeChange}/>
-        <News mode={this.state.mode} />
+          <Routes>
+            <Route exact path="/" element={<News key={"general"} category="general" country="in" mode={this.state.mode} />} />
+            <Route exact path="/business" element={<News key={"business"}  category="business" country="in" mode={this.state.mode} />} />
+            <Route exact path="/entertainment" element={<News key={"entertainment"}  category="entertainment" country="in" mode={this.state.mode} />} />
+            <Route exact path="/general" element={<News key={"general"}  category="general" country="in" mode={this.state.mode} />} />
+            <Route exact path="/health" element={<News key={"health"}  category="health" country="in" mode={this.state.mode} />} />
+            <Route exact path="/science" element={<News key={"science"}  category="science" country="in" mode={this.state.mode} />} />
+            <Route exact path="/sports" element={<News key={"sports"}  category="sports" country="in" mode={this.state.mode} />} />
+            <Route exact path="/technology" element={<News key={"technology"}  category="technology" country="in" mode={this.state.mode} />} />
+          </Routes>
         <Footer mode={this.state.mode}/>
-      </div>
+      </Router>
+        
+     
     )
   }
 }

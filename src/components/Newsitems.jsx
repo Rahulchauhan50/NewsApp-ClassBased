@@ -10,7 +10,7 @@ export class Newsitems extends Component {
           {source}
           <span className="visually-hidden">unread messages</span>
         </span>
-            <img src={imageurl===null?'https://static.vecteezy.com/system/resources/previews/004/141/669/non_2x/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg':imageurl} className="card-img-top" alt="..."/>
+            <img src={imageurl===null?'https://logopond.com/logos/33c9b6e0e65cdba90cd5f822851d26c6.png':imageurl} className="card-img-top" alt="..."/>
             <div className="card-body mb-0">
                 <h5 className="card-title">{title}</h5>
                 <p className="card-text">{despription}</p>
